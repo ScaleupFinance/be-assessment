@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ScaleupFinance.Assessment.Data.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ScaleupFinance.Assessment.Data.Repositories
 {

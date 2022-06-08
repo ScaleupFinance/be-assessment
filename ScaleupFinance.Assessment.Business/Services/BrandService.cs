@@ -1,5 +1,7 @@
 ﻿using ScaleupFinance.Assessment.Business.Models;
 using ScaleupFinance.Assessment.Data.Repositories;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ScaleupFinance.Assessment.Business.Services
 {
