@@ -1,6 +1,6 @@
-﻿namespace ScaleupFinance.Assessment.API.Models
+﻿namespace ScaleupFinance.Assessment.Data.Entities
 {
-    public class BrandGetModel
+    public class Brand
     {
         public int Id { get; set; }
         public string Name { get; set; }

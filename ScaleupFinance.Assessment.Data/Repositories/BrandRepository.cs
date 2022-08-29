@@ -1,20 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ScaleupFinance.Assessment.Data.Models;
+using ScaleupFinance.Assessment.Data.Entities;
+using ScaleupFinance.Assessment.Data.Interfaces;
 
 namespace ScaleupFinance.Assessment.Data.Repositories
 {
-    public interface IBrandRepository
-    {
-        Task<List<Brand>> GetAllAsync();
-        Task<Brand> GetAsync(int id);
-        Task<Brand> InsertAsync(Brand brand);
-    }
-
     public class BrandRepository : IBrandRepository
     {
-        private readonly ProductDbContext _context;
+        private readonly RetailDbContext _context;
 
-        public BrandRepository(ProductDbContext context)
+        public BrandRepository(RetailDbContext context)
         {
             _context = context;
         }

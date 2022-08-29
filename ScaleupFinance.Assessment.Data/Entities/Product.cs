@@ -1,4 +1,4 @@
-﻿namespace ScaleupFinance.Assessment.Data.Models
+﻿namespace ScaleupFinance.Assessment.Data.Entities
 {
     public class Product
     {

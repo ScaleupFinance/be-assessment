@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ScaleupFinance.Assesment.Business;
 using ScaleupFinance.Assessment.Data;
+using ScaleupFinance.Assessment.Data.Entities;
 
 namespace ScaleupFinance.Assessment.API
 {
@@ -13,26 +14,25 @@ namespace ScaleupFinance.Assessment.API
             // Add services to the container.
             builder.Services.AddDataLayer();
             builder.Services.AddBusinessLayer();
-            builder.Services.AddDbContext<ProductDbContext>(opt => opt.UseInMemoryDatabase("products"));
+            builder.Services.AddDbContext<RetailDbContext>(opt => opt.UseInMemoryDatabase("retail"));
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
             using var scope = app.Services.CreateScope();
-            var context = scope.ServiceProvider.GetService<ProductDbContext>();
-            context.Brands.Add(new Data.Models.Brand
+            var context = scope.ServiceProvider.GetService<RetailDbContext>();
+            context.Brands.Add(new Brand
             {
                 Name = "Nike"
             });
-            context.Brands.Add(new Data.Models.Brand
+            context.Brands.Add(new Brand
             {
                 Name = "Adidas"
             });
-            context.Brands.Add(new Data.Models.Brand
+            context.Brands.Add(new Brand
             {
                 Name = "Converse"
             });

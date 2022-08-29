@@ -1,13 +1,9 @@
-﻿using ScaleupFinance.Assessment.Business.Models;
-using ScaleupFinance.Assessment.Data.Repositories;
+﻿using ScaleupFinance.Assessment.Business.Interfaces;
+using ScaleupFinance.Assessment.Business.Models;
+using ScaleupFinance.Assessment.Data.Interfaces;
 
 namespace ScaleupFinance.Assessment.Business.Services
 {
-    public interface IBrandService
-    {
-        Task<List<Brand>> GetAllAsync();
-    }
-
     public class BrandService : IBrandService
     {
         private readonly IBrandRepository _brandRepository;
@@ -17,14 +13,14 @@ namespace ScaleupFinance.Assessment.Business.Services
             _brandRepository = brandRepository;
         }
 
-        public async Task<List<Brand>> GetAllAsync()
+        public async Task<List<BrandDto>> GetAllAsync()
         {
             var brands = await _brandRepository.GetAllAsync();
-            var response = new List<Brand>();
+            var response = new List<BrandDto>();
 
             foreach (var brand in brands)
             {
-                response.Add(new Brand
+                response.Add(new BrandDto
                 {
                     Id = brand.Id,
                     Name = brand.Name

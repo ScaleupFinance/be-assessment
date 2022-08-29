@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ScaleupFinance.Assessment.Data.Interfaces;
 using ScaleupFinance.Assessment.Data.Repositories;
 
 namespace ScaleupFinance.Assessment.Data

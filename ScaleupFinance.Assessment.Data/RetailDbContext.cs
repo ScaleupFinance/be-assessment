@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ScaleupFinance.Assessment.Data.Models;
+using ScaleupFinance.Assessment.Data.Entities;
 
 namespace ScaleupFinance.Assessment.Data
 {
-    public class ProductDbContext : DbContext
+    public class RetailDbContext : DbContext
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Brand> Brands { get; set; }
 
-        public ProductDbContext(DbContextOptions<ProductDbContext> options)
+        public RetailDbContext(DbContextOptions<RetailDbContext> options)
             : base(options)
         {
 

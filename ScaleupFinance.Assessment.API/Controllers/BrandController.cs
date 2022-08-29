@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ScaleupFinance.Assessment.Business.Services;
-using ScaleupFinance.Assessment.API.Models;
+using ScaleupFinance.Assessment.Business.Interfaces;
+using ScaleupFinance.Assessment.Business.Models;
 
 namespace ScaleupFinance.Assessment.API.Controllers
 {
@@ -16,20 +16,9 @@ namespace ScaleupFinance.Assessment.API.Controllers
         }
 
         [HttpGet]
-        public async Task<List<BrandGetModel>> GetAllAsync()
+        public async Task<List<BrandDto>> GetAllAsync()
         {
-            var brands = await _brandService.GetAllAsync();
-            var response = new List<BrandGetModel>();
-            foreach (var brand in brands)
-            {
-                response.Add(new BrandGetModel
-                {
-                    Id = brand.Id,
-                    Name = brand.Name
-                });
-            }
-
-            return response;
+            return await _brandService.GetAllAsync();
         }
     }
 }
